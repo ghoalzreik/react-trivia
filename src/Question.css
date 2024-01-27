@@ -1,0 +1,60 @@
+body {
+  justify-content: center;
+  background: url(cartoon.jpg);
+}
+
+.App {
+  text-align: center;
+  font-family: Regular;
+  font-weight:900;
+  font-style: italic;
+  background: linear-gradient(#ffffff, #0987e1, Purple,#ffffff);
+  padding: 25px;
+  border-radius: 50px;
+  border-color: #020202;
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.102);
+}
+
+header {
+  background: #ffffff;
+  color: #0a2d79;
+  padding: 1px;
+  text-align: center;
+  border-radius: 50px;
+  box-shadow: 0 0 50px #ffffff1a;
+
+}
+
+.nav-buttons {
+  margin-top: 5px;
+}
+
+.choice {
+  color: #0a2d79;
+  font-family: Regular;
+  font-weight:900;
+  font-style: italic;
+  background-color: #f9f9f9;
+  border: 2px solid #fffcfc;
+  padding: 10px;
+  margin: 0px;
+  cursor: auto;
+  border-radius: 20px;
+}
+
+.choice:hover {
+  color:#ffffff;
+  background-color: #ff7300;
+}
+
+.choice.selected {
+  background-color: #1deb24;
+  color: white;
+}
+
+.choices-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
