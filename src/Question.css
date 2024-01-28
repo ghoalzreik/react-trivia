@@ -8,7 +8,7 @@ body {
   font-family: Regular;
   font-weight:900;
   font-style: italic;
-  background: linear-gradient(#ffffff, #1894ec, #da11da, #ffff00,#ffffff);
+  background: linear-gradient(#ffffff, #ffff00,#1894ec, #da11da,#ffffff);
   padding: 25px;
   border-radius: 50px;
   border-color: #020202;
