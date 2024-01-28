@@ -8,16 +8,16 @@ body {
   font-family: Regular;
   font-weight:900;
   font-style: italic;
-  background: linear-gradient(#ffffff, #0987e1, Purple,#ffffff);
+  background: linear-gradient(#ffffff, #1894ec, #da11da, #ffff00,#ffffff);
   padding: 25px;
   border-radius: 50px;
   border-color: #020202;
-  box-shadow: 0 0 50px rgba(255, 255, 255, 0.102);
+  box-shadow: 0 0 50px #ffffff1a;
 }
 
 header {
-  background: #ffffff;
-  color: #0a2d79;
+  background: linear-gradient(#ffffff, #1deb24, #ffffff);
+  color: #8b0092;
   padding: 1px;
   text-align: center;
   border-radius: 50px;
@@ -30,7 +30,7 @@ header {
 }
 
 .choice {
-  color: #0a2d79;
+  color: #ff4500;
   font-family: Regular;
   font-weight:900;
   font-style: italic;
@@ -44,12 +44,12 @@ header {
 
 .choice:hover {
   color:#ffffff;
-  background-color: #ff7300;
+  background-color:#ff0000;
 }
 
 .choice.selected {
   background-color: #1deb24;
-  color: white;
+  color: #ffffff;
 }
 
 .choices-container {
