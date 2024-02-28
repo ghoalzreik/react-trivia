@@ -1,4 +1,3 @@
-//Ghofran Alzreikat
 import React, { useState } from "react";
 import "./App.css";
 import Question from "./Question";
