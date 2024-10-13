@@ -1,46 +1,50 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Question.css";
 
-interface QuestionProps {
-  questionData: {
-    question: string;
-    choices: string[];
-    correctAnswer: string;
-  };
-  onAnswer: (userAnswer: string) => void;
+interface QuestionData {
+  question: string;
+  choices: string[];
+  correctAnswer: string;
 }
 
-const Question: React.FC<QuestionProps> = ({ questionData, onAnswer }) => {
-  const [selectedChoice, setSelectedChoice] = useState("");
+interface QuestionProps {
+  questionData: QuestionData;
+  onAnswer: (userAnswer: string) => void;
+  selectedAnswer: string | null;
+}
 
-  const handleChoiceSelection = (choice: string) => {
-    setSelectedChoice(choice);
-  };
-
-  const handleSubmit = () => {
-    if (selectedChoice !== "") {
-      onAnswer(selectedChoice);
-      setSelectedChoice("");
-    }
+const Question: React.FC<QuestionProps> = ({
+  questionData,
+  onAnswer,
+  selectedAnswer,
+}) => {
+  const handleAnswer = (userAnswer: string) => {
+    onAnswer(userAnswer);
   };
 
   return (
-    <div className="question-container">
+    <div className="question">
       <h2>{questionData.question}</h2>
       <div className="choices-container">
         {questionData.choices.map((choice, index) => (
-          <div
+          <button
             key={index}
-            className={`choice ${selectedChoice === choice ? "selected" : ""}`}
-            onClick={() => handleChoiceSelection(choice)}
+            onClick={() => handleAnswer(choice)}
+            className={`choice-btn ${
+              selectedAnswer === choice
+                ? `selected ${
+                    selectedAnswer === questionData.correctAnswer
+                      ? "correct"
+                      : "incorrect"
+                  }`
+                : ""
+            }`}
+            disabled={selectedAnswer !== null}
           >
             {choice}
-          </div>
+          </button>
         ))}
       </div>
-      <button onClick={handleSubmit} disabled={selectedChoice === ""}>
-        Submit
-      </button>
     </div>
   );
 };
