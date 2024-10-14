@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
     justify-content: center;
-    min-width: 100vw;
+    min-width: 320px;
   min-height: 100vh;
   margin: 0;
 }
@@ -40,7 +40,7 @@ h1 {
   .App {
     text-align: center;
     padding: 20px;
-    max-width: 100px;
+    max-width: 1200px;
     width: 100%;
 }
 
