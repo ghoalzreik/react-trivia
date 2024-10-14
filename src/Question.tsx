@@ -23,7 +23,7 @@ const Question: React.FC<QuestionProps> = ({
   };
 
   return (
-    <div className="question">
+    <div className="question" style={{ maxWidth: "300px", margin: "0 auto" }}>
       <h2>{questionData.question}</h2>
       <div className="choices-container">
         {questionData.choices.map((choice, index) => (
