@@ -176,109 +176,64 @@ const questionsAndAnswers: QuestionData[] = [
 const App: React.FC = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [score, setScore] = useState(0);
-  const [showStartPage, setShowStartPage] = useState(true);
-  const [selectedAnswer, setSelectedAnswer] = useState<string | null>(null);
-  const [feedback, setFeedback] = useState("");
-  const [feedbackColor, setFeedbackColor] = useState("");
-  const [showFeedback, setShowFeedback] = useState(false);
-
-  const handleStartGame = () => {
-    setShowStartPage(false);
-  };
 
   const handleNextQuestion = () => {
-    setSelectedAnswer(null);
-    setFeedback("");
-    setFeedbackColor("");
-    setShowFeedback(false);
     setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
   };
 
+  const handlePrevQuestion = () => {
+    setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+  };
+
   const handleResetGame = () => {
-    setSelectedAnswer(null);
-    setFeedback("");
-    setFeedbackColor("");
-    setShowFeedback(false);
     setCurrentQuestionIndex(0);
     setScore(0);
   };
 
   const handleAnswer = (userAnswer: string) => {
-    if (selectedAnswer === null) {
-      const correctAnswer =
-        questionsAndAnswers[currentQuestionIndex].correctAnswer;
-      setSelectedAnswer(userAnswer);
-      if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
-        setScore((prevScore) => prevScore + 1);
-        setFeedback("Correct!");
-        setFeedbackColor("lime");
-      } else {
-        setFeedback("Wrong!");
-        setFeedbackColor("crimson");
-      }
-      setShowFeedback(true);
+    const correctAnswer =
+      questionsAndAnswers[currentQuestionIndex].correctAnswer;
+    if (userAnswer.toLowerCase() === correctAnswer.toLowerCase()) {
+      setScore((prevScore) => prevScore + 1);
     }
+
+    handleNextQuestion();
   };
 
   return (
-    <div className="App" style={{ maxWidth: "400px", margin: "0 auto" }}>
-      {showStartPage ? (
-        <div className="start-page">
-          <h1>Welcome to Who Wants to Be a Cartoonaire!</h1>
-          <button onClick={handleStartGame}>Start</button>
-        </div>
+    <div className="App">
+      <header>
+        <h1>"Guess The Cartoon"</h1>
+        <p>Current Score: {score}</p>
+      </header>
+
+      {currentQuestionIndex < questionsAndAnswers.length ? (
+        <Question
+          questionData={questionsAndAnswers[currentQuestionIndex]}
+          onAnswer={handleAnswer}
+        />
       ) : (
         <div>
-          <header>
-            <h1>Who Wants to Be a Cartoonaire?</h1>
-            <p>Score: {score}</p>
-          </header>
-
-          {currentQuestionIndex < questionsAndAnswers.length ? (
-            <div>
-              <h2>
-                Question {currentQuestionIndex + 1} of{" "}
-                {questionsAndAnswers.length}
-              </h2>
-              <Question
-                questionData={questionsAndAnswers[currentQuestionIndex]}
-                onAnswer={handleAnswer}
-                selectedAnswer={selectedAnswer}
-              />
-              {showFeedback && (
-                <div className="feedback">
-                  <span style={{ color: feedbackColor }}>{feedback}</span>
-                </div>
-              )}
-              <div className="nav-buttons">
-                <button onClick={handleNextQuestion}>Next</button>
-                <button onClick={handleResetGame}>Restart</button>
-              </div>
-            </div>
-          ) : (
-            <div className="game-over">
-              <h2>Game Finished</h2>
-              <p>
-                Final score: {score} / {questionsAndAnswers.length} (
-                {((score / questionsAndAnswers.length) * 100).toFixed(2)}%)
-              </p>
-              {score >= questionsAndAnswers.length * 0.8 ? (
-                <p>Congratulations! You're a cartoon mastermind!</p>
-              ) : score >= questionsAndAnswers.length * 0.5 ? (
-                <p>Good job! You're a cartoon enthusiast!</p>
-              ) : (
-                <p>
-                  Don't worry, you can always try again and improve your cartoon
-                  knowledge!
-                </p>
-              )}
-              <div className="nav-buttons">
-                <button onClick={handleResetGame}>Play Again</button>
-              </div>
-            </div>
-          )}
+          <h2>Game Finished</h2>
+          <p>Final score: {score} / 30</p>
         </div>
       )}
+
+      <div className="nav-buttons">
+        <button
+          onClick={handlePrevQuestion}
+          disabled={currentQuestionIndex === 0}
+        >
+          Back
+        </button>
+        <button
+          onClick={handleNextQuestion}
+          disabled={currentQuestionIndex === questionsAndAnswers.length}
+        >
+          Next
+        </button>
+        <button onClick={handleResetGame}>Restart</button>
+      </div>
     </div>
   );
 };
