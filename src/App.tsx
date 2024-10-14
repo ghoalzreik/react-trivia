@@ -221,7 +221,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="App">
+    <div className="App" style={{ maxWidth: "400px", margin: "0 auto" }}>
       {showStartPage ? (
         <div className="start-page">
           <h1>Welcome to Who Wants to Be a Cartoonaire!</h1>
