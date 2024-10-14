@@ -19,9 +19,7 @@ body {
     justify-content: center;
     min-width: 100vw;
   min-height: 100vh;
-  overflow: hidden;
-    margin: 0;
-    padding: 0;
+  margin: 0;
 }
 
 h1 {
@@ -42,7 +40,7 @@ h1 {
   .App {
     text-align: center;
     padding: 20px;
-    max-width: 1200px;
+    max-width: 100px;
     width: 100%;
 }
 
@@ -66,64 +64,24 @@ button {
 button:hover {
   background-color: #a763f4;
     transform: scale(1.05);
-  }
-  
-  button:disabled {
-    background-color: #b3b3b3;
-    color: #fafdff;
-    border-color: #fafdff;
-    cursor: not-allowed;
-  }
-  
-  /* Navigation Buttons Layout */
-  .nav-buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-  }
-  
-  /* Feedback Messages */
-  .feedback {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-top: 20px;
-  }
-  
-  /* Desktop styles */
-  @media (min-width: 1200px) {
-    body {
-      font-size: 18px;
-    }
 }
 
-/* Tablet styles */
-@media (min-width: 768px) and (max-width: 991px) {
-  body {
-    font-size: 16px;
-  }
+button:disabled {
+  background-color: #b3b3b3;
+  color: #fafdff;
+  border-color: #fafdff;
+  cursor: not-allowed;
 }
-
-/* Mobile styles */
-@media (max-width: 480px) {
-  body {
-    font-size: 14px;
-  }
-  .container {
-    padding: 10px;
-    margin: 10px;
-  }
-  .header {
-    font-size: 18px;
-    padding: 10px;
-  }
-  .nav {
-    display: none;
-  }
-  .main-content {
-    padding: 10px;
-  }
-  .footer {
-    padding: 10px;
-  }
+/* Navigation Buttons Layout */
+.nav-buttons {
+  margin-top: 30px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+/* Feedback Messages */
+.feedback {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-top: 20px;
 }
