@@ -1,60 +1,80 @@
-body {
-  justify-content: center;
-  background: url(cartoon.jpg);
-}
-
-.App {
-  text-align: center;
-  font-family: Regular;
-  font-weight:900;
-  font-style: italic;
-  background: linear-gradient(#ffffff, #ffff00,#1894ec, #da11da,#ffffff);
-  padding: 25px;
-  border-radius: 50px;
-  border-color: #020202;
-  box-shadow: 0 0 50px #ffffff1a;
-}
-
-header {
-  background: linear-gradient(#ffffff, #1deb24, #ffffff);
-  color: #8b0092;
-  padding: 1px;
-  text-align: center;
-  border-radius: 50px;
-  box-shadow: 0 0 50px #ffffff1a;
-
-}
-
-.nav-buttons {
-  margin-top: 5px;
-}
-
-.choice {
-  color: #ff4500;
-  font-family: Regular;
-  font-weight:900;
-  font-style: italic;
-  background-color: #f9f9f9;
-  border: 2px solid #fffcfc;
-  padding: 10px;
-  margin: 0px;
-  cursor: auto;
+/* Question Container */
+.question {
+  background: #fafdff;
+  padding: 40px;
   border-radius: 20px;
+  box-shadow: 0 10px 30px #b67cf9;
+  margin: 0 auto;
+  width: 1150px;
+  /* fixed width */
+  height: 350px;
+  /* fixed height */
+  max-width: 1150px;
+  /* fixed max-width */
+  max-height: 350px;
+  /* fixed max-height */
+  color: var(--text-color);
+  text-align: center;
 }
 
-.choice:hover {
-  color:#ffffff;
-  background-color:#ff0000;
+.question h2 {
+  font-family: var(--font-family-header);
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  background: linear-gradient(to top, #953ef8, #43b7ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.choice.selected {
-  background-color: #1deb24;
-  color: #ffffff;
+h3 {
+  font-family: var(--font-family-header);
+  font-size: 1.5rem;
+  color: var(--highlight-color);
+  text-shadow: 3px 2px 3px #953ef8;
+  margin: 0;
+  text-align: center;
 }
 
+.question h4 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #953ef8;
+  display: inline-block;
+  /* Keeps the heading centered */
+}
+
+/* Choices Layout */
 .choices-container {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  gap: 20px;
+  justify-items: center;
 }
 
+/* Choice Buttons */
+.choice-btn {
+  background-color: #a65cf4;
+  color: #fafdff;
+  padding: 20px;
+  border: 3px solid #ffffff;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+  box-shadow: 0 4px 8px #0480ce;
+  width: 100%;
+  max-width: 350px;
+}
+
+.choice-btn:hover {
+  background-color: var(--button-hover-bg-color);
+  transform: scale(1.05);
+}
+
+.choice-btn.correct {
+  color: #fff;
+}
+
+.choice-btn.incorrect {
+  color: #fff;
+}
