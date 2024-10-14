@@ -1,11 +1,24 @@
-:root {
-    --button-hover-bg-color: #77b2ff;
-      --text-color: #fafdff;
-      --highlight-color: #fafdff;
-      --font-family-header: 'Bebas Neue', cursive;
-      --font-family-body: 'Roboto', sans-serif;
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+    header {
+      padding: 10px;
+    }
+
+    .App {
+      padding: 10px;
+    }
 }
 
+:root {
+  --button-hover-bg-color: #77b2ff;
+  --text-color: #fafdff;
+  --highlight-color: #fafdff;
+  --font-family-header: 'Bebas Neue', cursive;
+  --font-family-body: 'Roboto', sans-serif;
+}
 * {
   box-sizing: border-box;
 }
